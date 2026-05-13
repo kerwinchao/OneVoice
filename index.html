@@ -1,0 +1,849 @@
+<!DOCTYPE hvtml>
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<title>OneVoice: One Model, Triple Scenarios—Towards Unified Zero-shot Voice Conversion</title>
+<meta name="generator" content="Jekyll v3.9.0">
+<meta property="og:title" content="TODO: title">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://github.com/Anonymous-site/OneVoice.github.io//">
+<meta property="og:url" content="https://github.com/Anonymous-site/OneVoice.github.io//">
+<meta name="twitter:card" content="summary">
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1001.0" data-gr-ext-installed="">
+    <section class="page-header">
+    <!-- <h1 class="project-name">Demo PAGE</h1> -->
+    <!-- <h2 class="project-tagline"></h2> -->
+      
+      
+    </section>
+
+<section class="main-content">
+    <h1 id=""><center>OneVoice: One Model, Triple Scenarios—Towards Unified Zero-shot Voice Conversion</center></h1>
+
+<!-- <div class="header-icons">
+  <a href="https://github.com/placeholder-repo" class="icon-link" target="_blank" title="GitHub Repository">
+    <div class="icon github-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      <span>GitHub</span>
+    </div>
+  </a> -->
+  
+  <a href="https://arxiv.org/pdf/2601.18094" class="icon-link" target="_blank" title="arXiv Paper">
+    <div class="icon arxiv-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 12.75c1.63 0 3.07.39 4.24.9 1.08.48 1.76 1.56 1.76 2.73V18H6v-1.61c0-1.18.68-2.26 1.76-2.73 1.17-.52 2.61-.91 4.24-.91zM4 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm1.13 1.1c-.37-.06-.74-.1-1.13-.1-.99 0-1.93.21-2.78.58A2.01 2.01 0 0 0 0 16.43V18h4.5v-1.61c0-.83.23-1.61.63-2.29zM20 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 3.43c0-.81-.48-1.53-1.22-1.85A6.95 6.95 0 0 0 20 14c-.39 0-.76.04-1.13.1.4.68.63 1.46.63 2.29V18H24v-1.57zM12 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/>
+      </svg>
+      <span>arXiv</span>
+    </div>
+  </a>
+  
+  <a href="https://placeholder-demo-page.com" class="icon-link" target="_blank" title="Demo Page">
+    <div class="icon demo-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+        <line x1="12" y1="22.08" x2="12" y2="12"/>
+      </svg>
+      <span>Demo</span>
+    </div>
+  </a>
+</div>
+
+
+
+
+<!-- 在目录（Contents）部分之后，Abstract 之前添加这个新部分 -->
+<h2 id="roadmap">Project Roadmap</h2>
+<p>This section will be updated as we progress.</p>
+<p>Note: The planned public release of source code and model weights has been suspended due to institutional policy. We provide experimental configurations in the paper and feel free to contact us for any related questions.</p>
+
+<div class="roadmap-container">
+  <div class="roadmap-item completed">
+    <div class="checkbox">✓</div>
+    <div class="item-content">
+      <strong>Demo Audio Samples</strong>
+      <p>Audio demos for EVC, SVC, and LVC scenarios</p>
+    </div>
+  </div>
+  
+  <div class="roadmap-item pending">
+    <div class="checkbox">✓</div>
+    <div class="item-content">
+      <strong>Paper on arXiv</strong>
+      <p>Technical paper pre-print with full details</p>
+    </div>
+  </div>
+  
+  
+  <div class="roadmap-item pending">
+    <div class="checkbox">◯</div>
+    <div class="item-content">
+      <strong>Code Release</strong>
+      <p>Open-source implementation on GitHub</p>
+    </div>
+  </div>
+  
+
+
+<h2 id="capabilities">Model Capabilities</h2>
+<p>OneVoice is a unified model that supports all three voice conversion scenarios: Linguistic-preserving (LVC), Expressive (EVC), and Singing (SVC).</p>
+
+<table class="capabilities-table">
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Specialized Models</th>
+      <th><strong>OneVoice (Ours)</strong></th>
+      <th>Capability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="task-row lvc-task">
+      <td class="task-name">
+        <strong>LVC</strong><br>
+        <span class="task-desc">Linguistic-preserving VC</span>
+      </td>
+      <td class="baseline-models">
+        SeedVC, MetisVC
+      </td>
+      <td class="our-model">
+        <div class="capability-indicator full-support">✓ Full Support</div>
+      </td>
+      <td class="application">
+        <div class="capability-list">
+          <div class="capability-item base">• Linguistic Preservation</div>
+          <div class="capability-item base">• Speaker Cloning</div>
+        </div>
+      </td>
+    </tr>
+    
+    <tr class="task-row evc-task">
+      <td class="task-name">
+        <strong>EVC</strong><br>
+        <span class="task-desc">Expressive VC</span>
+      </td>
+      <td class="baseline-models">
+        VEVO, REFVC
+      </td>
+      <td class="our-model">
+        <div class="capability-indicator full-support">✓ Full Support</div>
+      </td>
+      <td class="application">
+        <div class="capability-list">
+          <div class="capability-item base">• Linguistic Preservation</div>
+          <div class="capability-item base">• Speaker Cloning</div>
+          <div class="capability-item added">• + Prosody Transfer</div>
+        </div>
+      </td>
+    </tr>
+    
+    <tr class="task-row svc-task">
+      <td class="task-name">
+        <strong>SVC</strong><br>
+        <span class="task-desc">Singing VC</span>
+      </td>
+      <td class="baseline-models">
+        SeedVC-Sing, YINGSVC
+      </td>
+      <td class="our-model">
+        <div class="capability-indicator full-support">✓ Full Support</div>
+      </td>
+      <td class="application">
+        <div class="capability-list">
+          <div class="capability-item base">• Linguistic Preservation</div>
+          <div class="capability-item base">• Speaker Cloning</div>
+          <div class="capability-item added">• + Melody Adherence</div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<h2>Contents</h2>
+<ul>
+  <li><a href="#abstract">Abstract</a></li>
+  <li><a href="#EVC">Demo: EVC Results</a></li>
+  <li><a href="#SVC">Demo: SVC Results</a></li>
+  <li><a href="#LVC">Demo: LVC Results</a></li>
+  </li>
+
+</ul>
+
+<h2 id="abstract">Abstract<a name="abstract"></a></h2>
+<p>Recent progress of voice conversion~(VC) has achieved a new milestone in speaker cloning and linguistic preservation. But the field remains fragmented, relying on specialized models for linguistic-preserving, expressive, and singing scenarios. We propose OneVoice, a unified zero-shot framework capable of handling all three scenarios within a single model. OneVoice is built upon a continuous language model trained with VAE-free next-patch diffusion, ensuring high fidelity and efficient sequence modeling. Its core design for unification lies in a Mixture-of-Experts (MoE) designed to explicitly model shared conversion knowledge and scenario-specific expressivity. Expert selection is coordinated by a dual-path routing mechanism, including shared expert isolation and scenario-aware domain expert assignment with global-local cues. For precise conditioning, scenario-specific prosodic features are fused into each layer via a gated mechanism, allowing adaptive usage of prosody information. Furthermore, to enable the core idea and alleviate the imbalanced issue (abundant speech vs. scarce singing), we adopt a two-stage progressive training that includes foundational pre-training and scenario enhancement with LoRA-based domain experts. Experiments show that OneVoice matches or surpasses specialized models across all three scenarios, while verifying flexible control over scenarios and offering a fast decoding version as few as 2 steps.</p>
+<br><br>
+
+
+<!-- 雷达图/视频配音/demo -->
+<!-- <center><img src='fig/recog-sys_v2.jpg' width=400px></center> -->
+<center>
+<tr>
+  <!-- <td style="text-align: center; width: 140px;" rowspan=2 colspan=2><img src='fig /framework.jpg' width=500px></td> -->
+  <td style="text-align: center; width: 500px;" rowspan=1><img src='fig/framework.png' width=500px></td>
+  <td style="text-align: center; width: 340px;" rowspan=1><img src='fig/block.jpg' width=400px></td>
+    <!-- <td style="text-align: center; width: 140px;" rowspan=1><img src='fig/codec_pre.jpg' width=500px></td> -->
+</tr>
+</center>
+
+
+<h2>Demo: Zero-shot EVC Results <a name="EVC"></a></h2>
+<!-- <blockquote>
+  Zero-shot EVC demos for. 
+</blockquote> -->
+<table>
+  <tbody>
+    <tr>
+        <td style="text-align: center; width: 140px;" rowspan=2><strong>Target Speaker<strong></td>
+          <!-- <td style="text-align: center; width: 140px;" rowspan=1><strong>Target Speaker (Codec)<strong></td> -->
+      <td style="text-align: center; width: 140px;" rowspan=2><strong>Source Speech<strong></td>
+        <td style="text-align: center; width: 140px;" colspan=2><strong>EVC Models<strong></td>
+        <td style="text-align: center; width: 140px;" colspan=3><strong>Proposed Models<strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; width: 140px;" rowspan=1><strong>Vevo<strong></td>
+        <td style="text-align: center; width: 140px;" rowspan=1><strong>REFVC</strong><strong></td>
+      <td style="text-align: center; width: 140px;" rowspan=1><strong>OneVoice<strong></td>
+      <td style="text-align: center; width: 140px;" rowspan=1><strong>OneVoice-MF<strong></td>
+      <td style="text-align: center; width: 140px;" rowspan=1><strong>OneVoice^L<strong></td>
+    </tr>
+<tr>
+  <td style="width: 140px;" rowspan=1 colspan="4"><strong>Emotion<strong></td>
+</tr>
+
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/00004514-00000076.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/602870_apy_g002_m_sur.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/00004514-00000076+602870_apy_g002_m_sur.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/00004514-00000076+602870_apy_g002_m_sur.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/00004514-00000076+602870_apy_g002_m_sur.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/00004514-00000076+602870_apy_g002_m_sur.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/00004514-00000076+602870_apy_g002_m_sur.wav"></audio></td>
+</tr>
+
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/00004518-00000052.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/502739_apy_g002_m_sad.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/00004518-00000052+502739_apy_g002_m_sad.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/00004518-00000052+502739_apy_g002_m_sad.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/00004518-00000052+502739_apy_g002_m_sad.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/00004518-00000052+502739_apy_g002_m_sad.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/00004518-00000052+502739_apy_g002_m_sad.wav"></audio></td>
+</tr>
+
+ 
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/00019809_00000001.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/huangkong_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/00019809_00000001+huangkong_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/00019809_00000001+huangkong_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/00019809_00000001+huangkong_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/00019809_00000001+huangkong_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/00019809_00000001+huangkong_cn_f.wav"></audio></td>
+</tr>
+
+    
+
+
+
+
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/M15_02.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/102650_apy_g002_m_dis.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/M15_02+102650_apy_g002_m_dis.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/M15_02+102650_apy_g002_m_dis.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/M15_02+102650_apy_g002_m_dis.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/M15_02+102650_apy_g002_m_dis.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/M15_02+102650_apy_g002_m_dis.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/MF1_MAN_0001_0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/Angry_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/MF1_MAN_0001_0+Angry_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/MF1_MAN_0001_0+Angry_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/MF1_MAN_0001_0+Angry_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/MF1_MAN_0001_0+Angry_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/MF1_MAN_0001_0+Angry_f.wav"></audio></td>
+</tr>
+
+
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/M19-01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/602857_apy_g002_m_sur.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/M19-01+602857_apy_g002_m_sur.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/M19-01+602857_apy_g002_m_sur.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/M19-01+602857_apy_g002_m_sur.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/M19-01+602857_apy_g002_m_sur.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/M19-01+602857_apy_g002_m_sur.wav"></audio></td>
+</tr>
+
+
+
+<!-- <tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/M25_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/300002_apy_g002_hap.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/M25_01+300002_apy_g002_hap.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/M25_01+300002_apy_g002_hap.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/M25_01+300002_apy_g002_hap.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/M25_01+300002_apy_g002_hap.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/M25_01+300002_apy_g002_hap.wav"></audio></td>
+</tr>
+
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/M31_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/100016_apy_g002_dis.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/M31_01+100016_apy_g002_dis.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/M31_01+100016_apy_g002_dis.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/M31_01+100016_apy_g002_dis.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/M31_01+100016_apy_g002_dis.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/M31_01+100016_apy_g002_dis.wav"></audio></td>
+</tr> -->
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/00020170_00000001.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/concern_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/00020170_00000001+concern_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/00020170_00000001+concern_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/00020170_00000001+concern_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/00020170_00000001+concern_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/00020170_00000001+concern_cn_f.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/MM2_MAN_0001_0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/fear_zh_f_step.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/MM2_MAN_0001_0+fear_zh_f_step.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/MM2_MAN_0001_0+fear_zh_f_step.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/MM2_MAN_0001_0+fear_zh_f_step.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/MM2_MAN_0001_0+fear_zh_f_step.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/MM2_MAN_0001_0+fear_zh_f_step.wav"></audio></td>
+</tr>
+
+
+<tr>
+  <td style="width: 140px;" rowspan=1 colspan="4"><strong>Dubbing<strong></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/F27-01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/vo_EQHDJ102_6_ganyu_08_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/F27-01+vo_EQHDJ102_6_ganyu_08_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/F27-01+vo_EQHDJ102_6_ganyu_08_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/F27-01+vo_EQHDJ102_6_ganyu_08_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/F27-01+vo_EQHDJ102_6_ganyu_08_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/F27-01+vo_EQHDJ102_6_ganyu_08_01.wav"></audio></td>
+</tr>
+
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/common_voice_en_120405.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/aojiao_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/common_voice_en_120405+aojiao_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/common_voice_en_120405+aojiao_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/common_voice_en_120405+aojiao_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/common_voice_en_120405+aojiao_cn_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/common_voice_en_120405+aojiao_cn_f.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/MF3_MAN_0001_0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/MF3_MAN_0001_0+zh_100.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/MF3_MAN_0001_0+zh_100.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/MF3_MAN_0001_0+zh_100.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/MF3_MAN_0001_0+zh_100.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/MF3_MAN_0001_0+zh_100.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/MF3_MAN_0001_0+zh_100.wav"></audio></td>
+</tr>
+
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/SR_side2_yq1_jingliu_114.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/zh_518.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/SR_side2_yq1_jingliu_114+zh_518.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/SR_side2_yq1_jingliu_114+zh_518.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/SR_side2_yq1_jingliu_114+zh_518.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/SR_side2_yq1_jingliu_114+zh_518.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/SR_side2_yq1_jingliu_114+zh_518.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/SR_chapter0_Ag1_kafka_108.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/zh_447.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/SR_chapter0_Ag1_kafka_108+zh_447.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/SR_chapter0_Ag1_kafka_108+zh_447.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/SR_chapter0_Ag1_kafka_108+zh_447.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/SR_chapter0_Ag1_kafka_108+zh_447.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/SR_chapter0_Ag1_kafka_108+zh_447.wav"></audio></td>
+</tr>
+
+
+<tr>
+  <td style="width: 140px;" rowspan=1 colspan="4"><strong>Non-verbal<strong></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/common_voice_en_14819476.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/zh-cn_shenlige_joy_79.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/common_voice_en_14819476+zh-cn_shenlige_joy_79.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/common_voice_en_14819476+zh-cn_shenlige_joy_79.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/common_voice_en_14819476+zh-cn_shenlige_joy_79.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/common_voice_en_14819476+zh-cn_shenlige_joy_79.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/common_voice_en_14819476+zh-cn_shenlige_joy_79.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/F27-01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/zh_446_Sadaltager_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/F27-01+zh_446_Sadaltager_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/F27-01+zh_446_Sadaltager_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/F27-01+zh_446_Sadaltager_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/F27-01+zh_446_Sadaltager_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/F27-01+zh_446_Sadaltager_01.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/SR_chapter2_1_jingyuan_102.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/zh-cn_shenlige_sadness_57.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/SR_chapter2_1_jingyuan_102+zh-cn_shenlige_sadness_57.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/SR_chapter2_1_jingyuan_102+zh-cn_shenlige_sadness_57.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/SR_chapter2_1_jingyuan_102+zh-cn_shenlige_sadness_57.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/SR_chapter2_1_jingyuan_102+zh-cn_shenlige_sadness_57.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/SR_chapter2_1_jingyuan_102+zh-cn_shenlige_sadness_57.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/SR_chapter2_1_jingyuan_102.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/zh_445_Iapetus_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/SR_chapter2_1_jingyuan_102+zh_445_Iapetus_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/SR_chapter2_1_jingyuan_102+zh_445_Iapetus_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/SR_chapter2_1_jingyuan_102+zh_445_Iapetus_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/SR_chapter2_1_jingyuan_102+zh_445_Iapetus_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/SR_chapter2_1_jingyuan_102+zh_445_Iapetus_01.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/SR_side2_yq1_jingliu_114.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/zh_71_Iapetus_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/SR_side2_yq1_jingliu_114+zh_71_Iapetus_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/SR_side2_yq1_jingliu_114+zh_71_Iapetus_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/SR_side2_yq1_jingliu_114+zh_71_Iapetus_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/SR_side2_yq1_jingliu_114+zh_71_Iapetus_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/SR_side2_yq1_jingliu_114+zh_71_Iapetus_01.wav"></audio></td>
+</tr>
+
+
+
+<tr>
+  <td style="width: 140px;" rowspan=1 colspan="4"><strong>Accent<strong></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/00004510-00000116.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/00180036_sichuan_f18.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/00004510-00000116+00180036_sichuan_f18.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/00004510-00000116+00180036_sichuan_f18.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/00004510-00000116+00180036_sichuan_f18.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/00004510-00000116+00180036_sichuan_f18.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/00004510-00000116+00180036_sichuan_f18.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/F22_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/00720002_sihcuan_f72.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/F22_01+00720002_sihcuan_f72.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/F22_01+00720002_sihcuan_f72.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/F22_01+00720002_sihcuan_f72.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/F22_01+00720002_sihcuan_f72.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/F22_01+00720002_sihcuan_f72.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/F22_01.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/010937_dongbei_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/F22_01+010937_dongbei_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/F22_01+010937_dongbei_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/F22_01+010937_dongbei_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/F22_01+010937_dongbei_f.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/F22_01+010937_dongbei_f.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/SR_side2_yq1_jingliu_114.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/zh_873.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/SR_side2_yq1_jingliu_114+zh_873.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/SR_side2_yq1_jingliu_114+zh_873.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/SR_side2_yq1_jingliu_114+zh_873.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/SR_side2_yq1_jingliu_114+zh_873.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/SR_side2_yq1_jingliu_114+zh_873.wav"></audio></td>
+</tr>
+<!-- SR_side2_yq1_jingliu_114+zh_873 -->
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/00011063_00000001.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_expressive/seed_cn_TYZR.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/Vevo-EVC/00011063_00000001+seed_cn_TYZR.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/REFVC-EVC/00011063_00000001+seed_cn_TYZR.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC/00011063_00000001+seed_cn_TYZR.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_EVC/00011063_00000001+seed_cn_TYZR.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_EVC-LVCmode/00011063_00000001+seed_cn_TYZR.wav"></audio></td>
+</tr>
+
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2>Demo: Zero-shot SVC Results <a name="SVC"></a></h2>
+<!-- <blockquote>
+  Zero-shot EVC demos for. 
+</blockquote> -->
+<table>
+  <tbody>
+    <tr>
+        <td style="text-align: center; width: 140px;" rowspan=2><strong>Target Speaker<strong></td>
+          <!-- <td style="text-align: center; width: 140px;" rowspan=1><strong>Target Speaker (Codec)<strong></td> -->
+      <td style="text-align: center; width: 140px;" rowspan=2><strong>Source Singing<strong></td>
+        <td style="text-align: center; width: 140px;" colspan=2><strong>SVC Models<strong></td>
+        <td style="text-align: center; width: 140px;" colspan=2><strong>Proposed Models<strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; width: 140px;" rowspan=1><strong>SeedVC-Sing<strong></td>
+        <td style="text-align: center; width: 140px;" rowspan=1><strong>YINGSVC</strong><strong></td>
+      <td style="text-align: center; width: 140px;" rowspan=1><strong>OneVoice<strong></td>
+      <td style="text-align: center; width: 140px;" rowspan=1><strong>OneVoice-MF<strong></td>
+    </tr>
+<tr>
+  <td style="width: 140px;" rowspan=1 colspan="4"><strong>Target Singer<strong></td>
+</tr>
+
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/jmlongspk002214-jmlongsong002214-0+jmlongspk001385-jmlongsong001385-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/jmlongspk002214-jmlongsong002214-0+jmlongspk001385-jmlongsong001385-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/jmlongspk002214-jmlongsong002214-0+jmlongspk001385-jmlongsong001385-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/jmlongspk002214-jmlongsong002214-0+jmlongspk001385-jmlongsong001385-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/jmlongspk002214-jmlongsong002214-0+jmlongspk001385-jmlongsong001385-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/jmlongspk002214-jmlongsong002214-0+jmlongspk001385-jmlongsong001385-0.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/jmlongspk001226-jmlongsong001226-0+jmlongspk003184-jmlongsong003184-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/jmlongspk001226-jmlongsong001226-0+jmlongspk003184-jmlongsong003184-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/jmlongspk001226-jmlongsong001226-0+jmlongspk003184-jmlongsong003184-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/jmlongspk001226-jmlongsong001226-0+jmlongspk003184-jmlongsong003184-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/jmlongspk001226-jmlongsong001226-0+jmlongspk003184-jmlongsong003184-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/jmlongspk001226-jmlongsong001226-0+jmlongspk003184-jmlongsong003184-0.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/jmlongspk001410-jmlongsong001410-0_01+000286_3.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/jmlongspk001410-jmlongsong001410-0_01+000286_3.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/jmlongspk001410-jmlongsong001410-0_01+000286_3.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/jmlongspk001410-jmlongsong001410-0_01+000286_3.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/jmlongspk001410-jmlongsong001410-0_01+000286_3.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/jmlongspk001410-jmlongsong001410-0_01+000286_3.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/jmlongspk001418-jmlongsong001418-0+jmlongspk002636-jmlongsong002636-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/jmlongspk001418-jmlongsong001418-0+jmlongspk002636-jmlongsong002636-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/jmlongspk001418-jmlongsong001418-0+jmlongspk002636-jmlongsong002636-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/jmlongspk001418-jmlongsong001418-0+jmlongspk002636-jmlongsong002636-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/jmlongspk001418-jmlongsong001418-0+jmlongspk002636-jmlongsong002636-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/jmlongspk001418-jmlongsong001418-0+jmlongspk002636-jmlongsong002636-0.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/jmlongspk002540-jmlongsong002540-0+jmlongspk003367-jmlongsong003367-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/jmlongspk002540-jmlongsong002540-0+jmlongspk003367-jmlongsong003367-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/jmlongspk002540-jmlongsong002540-0+jmlongspk003367-jmlongsong003367-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/jmlongspk002540-jmlongsong002540-0+jmlongspk003367-jmlongsong003367-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/jmlongspk002540-jmlongsong002540-0+jmlongspk003367-jmlongsong003367-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/jmlongspk002540-jmlongsong002540-0+jmlongspk003367-jmlongsong003367-0.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/jmlongspk002701-jmlongsong002701-0+jmlongspk003883-jmlongsong003883-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/jmlongspk002701-jmlongsong002701-0+jmlongspk003883-jmlongsong003883-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/jmlongspk002701-jmlongsong002701-0+jmlongspk003883-jmlongsong003883-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/jmlongspk002701-jmlongsong002701-0+jmlongspk003883-jmlongsong003883-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/jmlongspk002701-jmlongsong002701-0+jmlongspk003883-jmlongsong003883-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/jmlongspk002701-jmlongsong002701-0+jmlongspk003883-jmlongsong003883-0.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/jmlongspk002814-jmlongsong002814-0+jmlongspk004244-jmlongsong004244-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/jmlongspk002814-jmlongsong002814-0+jmlongspk004244-jmlongsong004244-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/jmlongspk002814-jmlongsong002814-0+jmlongspk004244-jmlongsong004244-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/jmlongspk002814-jmlongsong002814-0+jmlongspk004244-jmlongsong004244-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/jmlongspk002814-jmlongsong002814-0+jmlongspk004244-jmlongsong004244-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/jmlongspk002814-jmlongsong002814-0+jmlongspk004244-jmlongsong004244-0.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/jmlongspk003408-jmlongsong003408-0+jmlongspk000011-jmlongsong000011-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/jmlongspk003408-jmlongsong003408-0+jmlongspk000011-jmlongsong000011-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/jmlongspk003408-jmlongsong003408-0+jmlongspk000011-jmlongsong000011-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/jmlongspk003408-jmlongsong003408-0+jmlongspk000011-jmlongsong000011-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/jmlongspk003408-jmlongsong003408-0+jmlongspk000011-jmlongsong000011-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/jmlongspk003408-jmlongsong003408-0+jmlongspk000011-jmlongsong000011-0.wav"></audio></td>
+</tr>
+
+
+
+
+
+
+<tr>
+  <td style="width: 140px;" rowspan=1 colspan="4"><strong>General Speaker<strong></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/F22_01+jmlongspk002851-jmlongsong002851-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/F22_01+jmlongspk002851-jmlongsong002851-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/F22_01+jmlongspk002851-jmlongsong002851-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/F22_01+jmlongspk002851-jmlongsong002851-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/F22_01+jmlongspk002851-jmlongsong002851-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/F22_01+jmlongspk002851-jmlongsong002851-0.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/F25_01+jmlongspk004574-jmlongsong004574-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/F25_01+jmlongspk004574-jmlongsong004574-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/F25_01+jmlongspk004574-jmlongsong004574-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/F25_01+jmlongspk004574-jmlongsong004574-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/F25_01+jmlongspk004574-jmlongsong004574-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/F25_01+jmlongspk004574-jmlongsong004574-0.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/FDB9_000005+jmlongspk000011-jmlongsong000011-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/FDB9_000005+jmlongspk000011-jmlongsong000011-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/FDB9_000005+jmlongspk000011-jmlongsong000011-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/FDB9_000005+jmlongspk000011-jmlongsong000011-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/FDB9_000005+jmlongspk000011-jmlongsong000011-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/FDB9_000005+jmlongspk000011-jmlongsong000011-0.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/SR_chapter0_Ag1_kafka_108+jmlongspk001294-jmlongsong001294-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/SR_chapter0_Ag1_kafka_108+jmlongspk001294-jmlongsong001294-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/SR_chapter0_Ag1_kafka_108+jmlongspk001294-jmlongsong001294-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/SR_chapter0_Ag1_kafka_108+jmlongspk001294-jmlongsong001294-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/SR_chapter0_Ag1_kafka_108+jmlongspk001294-jmlongsong001294-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/SR_chapter0_Ag1_kafka_108+jmlongspk001294-jmlongsong001294-0.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/SR_chapter1_1_pela_204+jmlongspk003351-jmlongsong003351-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/SR_chapter1_1_pela_204+jmlongspk003351-jmlongsong003351-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/SR_chapter1_1_pela_204+jmlongspk003351-jmlongsong003351-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/SR_chapter1_1_pela_204+jmlongspk003351-jmlongsong003351-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/SR_chapter1_1_pela_204+jmlongspk003351-jmlongsong003351-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/SR_chapter1_1_pela_204+jmlongspk003351-jmlongsong003351-0.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/SR_chapter2_1_jingyuan_102+000286_1.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/SR_chapter2_1_jingyuan_102+000286_1.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/SR_chapter2_1_jingyuan_102+000286_1.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/SR_chapter2_1_jingyuan_102+000286_1.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/SR_chapter2_1_jingyuan_102+000286_1.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/SR_chapter2_1_jingyuan_102+000286_1.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/SR_side2_yq1_jingliu_114+jmlongspk000764-jmlongsong000764-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/SR_side2_yq1_jingliu_114+jmlongspk000764-jmlongsong000764-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/SR_side2_yq1_jingliu_114+jmlongspk000764-jmlongsong000764-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/SR_side2_yq1_jingliu_114+jmlongspk000764-jmlongsong000764-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/SR_side2_yq1_jingliu_114+jmlongspk000764-jmlongsong000764-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/SR_side2_yq1_jingliu_114+jmlongspk000764-jmlongsong000764-0.wav"></audio></td>
+</tr>
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk-sing/MF2_MAN_0001_0+jmlongspk003540-jmlongsong003540-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src-sing/MF2_MAN_0001_0+jmlongspk003540-jmlongsong003540-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC-SVC/MF2_MAN_0001_0+jmlongspk003540-jmlongsong003540-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/YINGSVC-SVC/MF2_MAN_0001_0+jmlongspk003540-jmlongsong003540-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-SVC/MF2_MAN_0001_0+jmlongspk003540-jmlongsong003540-0.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice-MF-SVC/MF2_MAN_0001_0+jmlongspk003540-jmlongsong003540-0.wav"></audio></td>
+</tr>
+
+  </tbody>
+</table>
+
+
+
+
+
+<h2>Demo: Zero-shot LVC Results <a name="LVC"></a></h2>
+<!-- <blockquote>
+  Zero-shot EVC demos for. 
+</blockquote> -->
+<table>
+  <tbody>
+    <tr>
+        <td style="text-align: center; width: 140px;" rowspan=2><strong>Target Speaker<strong></td>
+          <!-- <td style="text-align: center; width: 140px;" rowspan=1><strong>Target Speaker (Codec)<strong></td> -->
+      <td style="text-align: center; width: 140px;" rowspan=2><strong>Source Speech<strong></td>
+        <td style="text-align: center; width: 140px;" colspan=2><strong>LVC Models<strong></td>
+        <td style="text-align: center; width: 140px;" colspan=2><strong>Proposed Models<strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; width: 140px;" rowspan=1><strong>SeedVC<strong></td>
+        <td style="text-align: center; width: 140px;" rowspan=1><strong>MetisVC</strong><strong></td>
+      <td style="text-align: center; width: 140px;" rowspan=1><strong>OneVoice<strong></td>
+      <td style="text-align: center; width: 140px;" rowspan=1><strong>OneVoice-MF<strong></td>
+    </tr>
+
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/SR_side2_yq1_jingliu_114.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_general/00005525-00000012.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC_LVC/SR_side2_yq1_jingliu_114+00005525-00000012.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/MetisVC-LVC/SR_side2_yq1_jingliu_114+00005525-00000012.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_LVC/SR_side2_yq1_jingliu_114+00005525-00000012.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_LVC/SR_side2_yq1_jingliu_114+00005525-00000012.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/SR_chapter2_1_jingyuan_102.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_general/00107414-00000016.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC_LVC/SR_chapter2_1_jingyuan_102+00107414-00000016.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/MetisVC-LVC/SR_chapter2_1_jingyuan_102+00107414-00000016.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_LVC/SR_chapter2_1_jingyuan_102+00107414-00000016.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_LVC/SR_chapter2_1_jingyuan_102+00107414-00000016.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/SR_chapter1_1_pela_204.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_general/00017889-00000016.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC_LVC/SR_chapter1_1_pela_204+00017889-00000016.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/MetisVC-LVC/SR_chapter1_1_pela_204+00017889-00000016.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_LVC/SR_chapter1_1_pela_204+00017889-00000016.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_LVC/SR_chapter1_1_pela_204+00017889-00000016.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/SR_chapter0_Ag1_kafka_108.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_general/00005513-00000028.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC_LVC/SR_chapter0_Ag1_kafka_108+00005513-00000028.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/MetisVC-LVC/SR_chapter0_Ag1_kafka_108+00005513-00000028.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_LVC/SR_chapter0_Ag1_kafka_108+00005513-00000028.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_LVC/SR_chapter0_Ag1_kafka_108+00005513-00000028.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/00004510-00000116.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_general/00107946-00000148.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC_LVC/00004510-00000116+00107946-00000148.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/MetisVC-LVC/00004510-00000116+00107946-00000148.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_LVC/00004510-00000116+00107946-00000148.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_LVC/00004510-00000116+00107946-00000148.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/00004511-00000098.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_general/10003619-00000074.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC_LVC/00004511-00000098+10003619-00000074.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/MetisVC-LVC/00004511-00000098+10003619-00000074.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_LVC/00004511-00000098+10003619-00000074.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_LVC/00004511-00000098+10003619-00000074.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/00004513-00000013.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_general/00107946-00000148.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC_LVC/00004513-00000013+00107946-00000148.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/MetisVC-LVC/00004513-00000013+00107946-00000148.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_LVC/00004513-00000013+00107946-00000148.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_LVC/00004513-00000013+00107946-00000148.wav"></audio></td>
+</tr>
+
+
+<tr>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/spk_speech/00004514-00000076.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/src_general/00004646-00000076.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/SeedVC_LVC/00004514-00000076+00004646-00000076.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/MetisVC-LVC/00004514-00000076+00004646-00000076.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_LVC/00004514-00000076+00004646-00000076.wav"></audio></td>
+<td style="text-align: center"><audio style="width: 140px;" controls="" preload="none" src="sample/OneVoice_MF_LVC/00004514-00000076+00004646-00000076.wav"></audio></td>
+</tr>
+
+
+
+  </tbody>
+</table>
+
+
+
+
+
+
+<!-- <h2>References<a name="MD-LR"></a></h2>
+
+<ol>
+  <li>E. Casanova, J. Weber, C. D. Shulby, A. C. Junior, E. G ̈olge, and M. A. Ponti, “YourTTS: Towards zero-shot multi-speaker TTS and zero-shot voice conversion for everyone,” in International Conference on Machine Learning (ICML), 2022, pp. 2709–2720.</li>
+  <li>Z. Borsos, R. Marinier, D. Vincent, E. Kharitonov, O. Pietquin, M. Sharifi, O. Teboul, D. Grangier, M. Tagliasacchi, and N. Zeghidour, “AudioLM: a language modeling approach to audio generation,” Arxiv, 2022</li>
+</ol> -->
+
+
+
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com/">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+</body></html>
